@@ -3,11 +3,10 @@
 namespace App\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
 
 class Cors
 {
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
     {
         $headers = [
             'Access-Control-Allow-Origin' => '*',
