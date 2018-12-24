@@ -6,6 +6,6 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 $app = require __DIR__ . '/app/bootstrap.php';
 
-$kernel = $app->make('Illuminate\Contracts\Console\Kernel');
+$kernel = $app->make('Laravel\Lumen\Console\Kernel');
 
 exit($kernel->handle(new ArgvInput, new ConsoleOutput));
