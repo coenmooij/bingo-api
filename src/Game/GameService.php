@@ -4,12 +4,22 @@ namespace App\Game;
 
 class GameService
 {
-
-    public function getAll(): array
+    public function create(string $title): array
     {
-        return [
-            ['title' => 'My game', 'description' => 'Playing bingo with frenz'],
-            ['title' => 'More geemz', 'description' => 'MORE BINGOOOOO'],
-        ];
+        $game = new Game();
+        $game->title = $title;
+        $game->pin = $this->generatePin();
+        $game->session_id = $this->generateSessionId();
+        $game->saveOrFail();
+    }
+
+    public function generatePin(): int
+    {
+        return rand(10000, 99999);
+    }
+
+    public function generateSessionId(): string
+    {
+        return md5(rand());
     }
 }

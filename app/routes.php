@@ -7,4 +7,4 @@ $router->get(
     }
 );
 
-$router->get('games', 'Game\GameController@getAll');
+$router->post('games', 'Game\GameController@post');

@@ -16,10 +16,14 @@ class GameController extends Controller
         $this->gameService = $gameService;
     }
 
-    public function getAll(Request $request)
-    {
-        $data = $this->gameService->getAll();
 
-        return new JsonResponse($data, Response::HTTP_OK);
+    public function post(Request $request): JsonResponse
+    {
+        $title = $request->get('title');
+        if (!is_string($title) || $title === '') {
+            return new JsonResponse(['message' => 'Missing parameter title'], Response::HTTP_BAD_REQUEST);
+        }
+        $game = $this->gameService->create($title);
+        return new JsonResponse(['data' => $game], Response::HTTP_CREATED);
     }
 }
