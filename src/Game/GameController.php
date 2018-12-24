@@ -16,7 +16,6 @@ class GameController extends Controller
         $this->gameService = $gameService;
     }
 
-
     public function post(Request $request): JsonResponse
     {
         $title = $request->get('title');

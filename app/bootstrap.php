@@ -15,6 +15,8 @@ $app = new Laravel\Lumen\Application(
 $app->withFacades();
 $app->withEloquent();
 
+$app->middleware([App\Middleware\Cors::class]);
+
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     Laravel\Lumen\Exceptions\Handler::class
