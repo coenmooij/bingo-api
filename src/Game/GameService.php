@@ -4,13 +4,15 @@ namespace App\Game;
 
 class GameService
 {
-    public function create(string $title): array
+    public function create(string $title): Game
     {
         $game = new Game();
         $game->title = $title;
         $game->pin = $this->generatePin();
         $game->session_id = $this->generateSessionId();
         $game->saveOrFail();
+
+        return $game;
     }
 
     public function generatePin(): int
