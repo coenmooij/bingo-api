@@ -24,7 +24,7 @@ class PlayerController extends Controller
         }
 
         $pin = $request->get('pin');
-        if (!is_string($pin) || $pin === '') {
+        if (empty($pin)) {
             return new JsonResponse(['message' => 'Missing parameter pin'], Response::HTTP_BAD_REQUEST);
         }
 
