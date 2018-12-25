@@ -11,9 +11,7 @@ class CreateGamesTable extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('description')->nullable();
-            $table->integer('code')->unsigned()->default(0);
-            $table->boolean('invite_only');
+            $table->integer('pin')->unsigned()->default(0);
             $table->string('session_id');
             $table->timestamps();
         });
