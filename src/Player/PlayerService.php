@@ -25,12 +25,14 @@ class PlayerService
     public function generateCard(): string
     {
         $card = [];
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $start = ($i * 15) + 1;
             $end = $start + 14;
             $balls = range($start, $end);
             shuffle($balls);
-            $card[] = array_slice($balls, 0, 5);
+            $balls = array_slice($balls, 0, 5);
+            sort($balls);
+            $card[] = $balls;
         }
 
         return json_encode($card);
