@@ -12,6 +12,7 @@ class CreatePlayersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('game_id')->unsigned();
+            $table->string('card');
             $table->timestamps();
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
         });
