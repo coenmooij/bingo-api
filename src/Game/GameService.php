@@ -10,6 +10,7 @@ class GameService
         $game->title = $title;
         $game->pin = $this->generatePin();
         $game->session_id = $this->generateSessionId();
+        $game->balls = $this->generateBalls();
         $game->saveOrFail();
 
         return $game;

@@ -13,7 +13,7 @@ class CreateGamesTable extends Migration
             $table->string('title');
             $table->integer('pin')->unsigned()->default(0);
             $table->string('session_id');
-            $table->text('balls');
+            $table->string('balls');
             $table->timestamps();
             $table->unique('pin');
         });
