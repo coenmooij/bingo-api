@@ -14,6 +14,7 @@ class CreateGamesTable extends Migration
             $table->integer('pin')->unsigned()->default(0);
             $table->string('session_id');
             $table->timestamps();
+            $table->unique('pin');
         });
     }
 

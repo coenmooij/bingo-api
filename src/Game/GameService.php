@@ -24,4 +24,12 @@ class GameService
     {
         return md5(rand());
     }
+
+    public function generateBalls(): string
+    {
+        $balls = range(1, 75);
+        shuffle($balls);
+
+        return json_encode($balls);
+    }
 }
