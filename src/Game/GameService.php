@@ -16,6 +16,14 @@ class GameService
         return $game;
     }
 
+    public function deleteGame(string $id, string $sessionId): void
+    {
+        /** @var Game $game */
+        $game = Game::where('id', $id)->where('session_id', $sessionId)->firstOrFail();
+
+        $game->delete();
+    }
+
     public function generatePin(): int
     {
         return rand(10000, 99999);
