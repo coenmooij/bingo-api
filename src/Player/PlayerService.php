@@ -6,6 +6,13 @@ use App\Game\Game;
 
 class PlayerService
 {
+    public function get(string $gameId, string $sessionId)
+    {
+        Game::where('session_id', $sessionId)->where('id', $gameId)->firstOrFail();
+
+        return Player::where('game_id', $gameId)->get();
+    }
+
     public function joinGame(string $pin, string $name): array
     {
         $game = Game::where('pin', $pin)->firstOrFail();
